@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Weblio英和辞典 ショートカット",
+  "version": "1.0.0",
+  "description": "Weblio英和辞典・和英辞典で、ページ上のキー入力を自動的に検索ボックスへ送り、Enterで即座に検索を開始します。",
+  "host_permissions": [
+    "https://ejje.weblio.jp/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://ejje.weblio.jp/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
