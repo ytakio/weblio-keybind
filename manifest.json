@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Weblio英和辞典 ショートカット",
+  "name": "Weblio keybind",
   "version": "1.0.0",
-  "description": "Weblio英和辞典・和英辞典で、ページ上のキー入力を自動的に検索ボックスへ送り、Enterで即座に検索を開始します。",
+  "description": "Enter to listen pronounciation. Start input from anywhere.",
   "host_permissions": [
     "https://ejje.weblio.jp/*"
   ],
