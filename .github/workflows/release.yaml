@@ -37,7 +37,9 @@ jobs:
         run: |
           VERSION="${{ steps.manifest.outputs.version }}"
           ASSET_NAME="weblio-keybind_v${VERSION}.zip"
-          zip -r "${ASSET_NAME}" manifest.json content.js README.md
+          mkdir -p weblio-keybind
+          cp manifest.json content.js README.md weblio-keybind/
+          zip -r "${ASSET_NAME}" weblio-keybind
           echo "asset_name=${ASSET_NAME}" >> "$GITHUB_ENV"
 
       - name: Create GitHub Release
