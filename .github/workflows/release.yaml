@@ -36,7 +36,7 @@ jobs:
       - name: Package extension
         run: |
           VERSION="${{ steps.manifest.outputs.version }}"
-          ASSET_NAME="weblio-ejje-shortcut-${VERSION}.zip"
+          ASSET_NAME="weblio-keybind_v${VERSION}.zip"
           zip -r "${ASSET_NAME}" manifest.json content.js README.md
           echo "asset_name=${ASSET_NAME}" >> "$GITHUB_ENV"
 
