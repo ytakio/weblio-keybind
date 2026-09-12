@@ -43,7 +43,7 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: "Weblio英和辞典 ショートカット v${{ steps.manifest.outputs.version }}"
+          name: "weblio-keybind_v${{ steps.manifest.outputs.version }}"
           files: |
             ${{ env.asset_name }}
           generate_release_notes: true
