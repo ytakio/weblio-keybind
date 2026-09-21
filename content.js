@@ -2,36 +2,34 @@
   'use strict';
 
 
-  function isTypingInField() {
-    const el = document.activeElement;
-    if (!el) return false;
-    const tag = el.tagName;
-    return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || el.isContentEditable;
+  function isTypingInField(event) {
+    return event.target.matches('input, textarea, [contenteditable="true"]');
   }
 
   function playPronunciation() {
     const icon = document.querySelector('.contentTopAudioIcon');
-    if (icon) {
-      icon.click();
-      return;
-    }
+    if (!icon) return;
+    icon.click();
   }
 
-  document.addEventListener('keydown', (e) => {
-    if (isTypingInField()) return;
-
-    if (e.key === 'Enter') {
-      playPronunciation();
-      return;
-    }
-
-    if (e.ctrlKey || e.metaKey || e.altKey) return;
-    if (!/^[a-zA-Z]$/.test(e.key)) return;
-
+  function clearSearchInput() {
     const searchInput = document.querySelector('input#searchWord');
     if (!searchInput) return;
     searchInput.value = '';
-
     searchInput.focus();
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (isTypingInField(event)) return;
+
+    switch (event.key) {
+      case 'Enter':
+        playPronunciation();
+        break;
+      case 'Backspace':
+        clearSearchInput();
+        break;
+      default:
+    }
   }, true);
 })();
