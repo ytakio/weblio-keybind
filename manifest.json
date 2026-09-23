@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Weblio keybind",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Enter to listen pronounciation. Start input from anywhere.",
   "host_permissions": [
     "https://ejje.weblio.jp/*"
@@ -16,5 +16,14 @@
       ],
       "run_at": "document_idle"
     }
-  ]
+  ],
+  "chrome_settings_overrides": {
+    "search_provider": {
+      "name": "Weblio",
+      "keyword": "en",
+      "search_url": "https://ejje.weblio.jp/content/{searchTerms}",
+      "favicon_url": "https://cdn.weblio.jp/e7/img/favicon/ejje.png",
+      "encoding": "UTF-8"
+    }
+  }
 }
